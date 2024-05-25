@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
 const data = [
   {
     id: 0,
@@ -62,6 +65,7 @@ const data = [
 ];
 
 export default function Product() {
+  const { addToCart } = useContext(CartContext);
   return (
     <div className="flex">
       <div className="flex flex-wrap justify-center">
@@ -74,7 +78,10 @@ export default function Product() {
             <div>{product.name}</div>
             <div>${product.price}</div>
             <div className="flex items-center justify-between text-lg gap-2">
-              <button className="bg-slate-700 py-1 px-4 rounded-sm hover:bg-slate-400">
+              <button
+                className="bg-slate-700 py-1 px-4 rounded-sm hover:bg-slate-400"
+                onClick={() => addToCart(product.name, product.price)}
+              >
                 +
               </button>
               <h2>10</h2>
