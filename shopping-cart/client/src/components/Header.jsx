@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { cartContext } from "../context/CartContext";
+
 export const Header = () => {
+  const { cart } = useContext(cartContext);
   return (
-    <header>
+    <Header className="text-sky-400">
       <ul>
         <li>
           <Link to="/">Store</Link>
@@ -10,6 +14,7 @@ export const Header = () => {
           <Link to="/cart">Cart</Link>
         </li>
       </ul>
-    </header>
+      <div>{cart}</div>
+    </Header>
   );
 };
