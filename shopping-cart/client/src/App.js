@@ -1,10 +1,16 @@
-import { Main } from "./main";
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Store } from "./pages/Store";
+import { Cart } from "./pages/Cart";
+import { Header } from "./components/Header";
+
+export default function App() {
   return (
-    <div className="text-red-500">
-      <Main />
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Store />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
